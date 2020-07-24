@@ -1,0 +1,29 @@
+Explaining Callback Functions
+
+Functions will have callback functions that they accept. And they will have set parameters that will need to be included sometimes.
+
+in the request function, it takes a url object and also a callback with two parameters, (error, response)
+
+request({url}, (error, response) => {
+
+})
+
+So because this function takes time, and we want to use the data returned from this function and do something with the data (error and response), we use a callback function that would accept the error and the response RETURN, once it is return we can use OUR callback that we declared and do something with that information.
+
+So, we never really see what the full request code looks like, its something like 
+
+request = (url, callback) => {
+    // does something with the url
+    const error = whatever;
+    const response = whatever;
+
+    callback(error, response);
+}
+
+Then it goes to our code, so we can manipulate whatever the outcome of the URL return is, in this case it was the weather JSON that the weather API returned, we then had to do json: true to parse the JSON into a Javascript object
+
+
+
+// IN THE REQUEST GEOCODE FORECAST EXAMPLE
+
+We chain callbacks, first app.js calls geocode function (1st callback), and in geocode we call request (2nd callback), we use two callbacks to get the information up to the top and to use it.
